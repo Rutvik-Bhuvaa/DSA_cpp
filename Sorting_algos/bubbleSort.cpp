@@ -1,17 +1,15 @@
 #include<iostream>
 using namespace std;
 
-void selectionSort(int arr[], int size){
+void bubbleSort(int arr[], int size){
     for(int i=0; i<size-1; i++){
-        int minIndex = i;
-        for(int j=i+1; j<size; j++){
-            if(arr[j] < arr[minIndex]){
-                minIndex = j;
+        for(int j=0; j<(size-1)-i; j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
             }
         }
-        int temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
     }
 }
 
@@ -22,10 +20,10 @@ void printArray(int arr[], int size){
 }
 
 int main(){
-    int arr[5] = {4, 1, 3, 9, 7};
+    int arr[5] = {5,4,3,2,1};
     int size = (sizeof arr/sizeof arr[0]);
-    
-    selectionSort(arr, size);
+
+    bubbleSort(arr, size);
     cout << "Sorted array is: ";
     printArray(arr, size);
     return 0;
