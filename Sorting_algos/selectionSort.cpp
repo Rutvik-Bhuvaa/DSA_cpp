@@ -1,3 +1,6 @@
+// Selection sort  : T(c) = O(n^2)
+
+
 #include<iostream>
 using namespace std;
 
