@@ -18,6 +18,7 @@ int partition(vector<int>& arr, int left, int right) {
 
 void quicksort(vector<int>& arr, int left, int right) {
     if (left < right) {
+        // here pivot index comes as a return value from partition
         int pi = partition(arr, left, right);
         quicksort(arr, left, pi - 1);
         quicksort(arr, pi + 1, right);
