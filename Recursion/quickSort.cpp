@@ -3,21 +3,25 @@
 
 using namespace std;
 
-void quicksort(vector<int>& arr, int left, int right) {
-    if (left >= right) return;
-    int pivot = arr[(left + right) / 2];
-    int i = left, j = right;
-    while (i <= j) {
-        while (arr[i] < pivot) i++;
-        while (arr[j] > pivot) j--;
-        if (i <= j) {
-            swap(arr[i], arr[j]);
+int partition(vector<int>& arr, int left, int right) {
+    int pivot = arr[right];
+    int i = left - 1;
+    for (int j = left; j < right; j++) {
+        if (arr[j] <= pivot) {
             i++;
-            j--;
+            swap(arr[i], arr[j]);
         }
     }
-    quicksort(arr, left, j);
-    quicksort(arr, i, right);
+    swap(arr[i + 1], arr[right]);
+    return i + 1;
+}
+
+void quicksort(vector<int>& arr, int left, int right) {
+    if (left < right) {
+        int pi = partition(arr, left, right);
+        quicksort(arr, left, pi - 1);
+        quicksort(arr, pi + 1, right);
+    }
 }
 
 int main() {
