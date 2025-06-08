@@ -14,7 +14,17 @@ void print(Node *iter){
         cout << iter->data << " ";
         iter = iter->next;
     }
+    cout << endl;
 
+}
+
+void printReverse(Node *iter){
+    if(iter == NULL){
+        return;
+    }
+
+    printReverse(iter->next);
+    cout << iter->data << " ";
 }
 
 int main(){
@@ -38,9 +48,13 @@ int main(){
         temp = temp->next;
         temp->data = arr[i];
     }
+    temp->next = NULL; 
 
     Node *iter = head;
 
     print(iter);
+    cout << "Reverse: ";
+    printReverse(iter);
+    cout << endl;
     return 0;
 }
