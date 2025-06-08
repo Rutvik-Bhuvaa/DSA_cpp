@@ -6,20 +6,34 @@ class Node{
     public:
     int data;
     Node *next;
-}
+};
 
 int main(){
-    Node *head = new Node;
-    head->data = 36;
-    head->next = new Node;
-    first = head;
-    first = first->next;
-    first->data = 28;
-    first->next = new Node;
-    first = first->next;
-    first->data = 4;
-    first->next = new Node;
-    first = first->next;
-    first->data = 9;
+     // Create head node
+     Node* head = new Node;
+     head->data = 36;
+ 
+     // Create second node
+     Node* second = new Node;
+     second->data = 28;
+     head->next = second;
+ 
+     // Create third node
+     Node* third = new Node;
+     third->data = 4;
+     second->next = third;
+ 
+     // Create fourth node
+     Node* fourth = new Node;
+     fourth->data = 9;
+     third->next = fourth;
+
+    // Print the list
+    Node* temp = head;
+    while(temp != NULL) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
     return 0;
 }
