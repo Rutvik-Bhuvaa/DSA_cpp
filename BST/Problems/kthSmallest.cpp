@@ -25,22 +25,22 @@ Node* insert(Node* root, int value) {
     return root;
 }
 
-// Reverse inorder to find kth largest
-void findKthLargest(Node* root, int& k, int& ans) {
+// Inorder traversal to find kth smallest
+void findKthSmallest(Node* root, int& k, int& ans) {
     if (!root || k <= 0) return;
 
-    findKthLargest(root->right, k, ans);
+    findKthSmallest(root->left, k, ans);
     k--;
     if (k == 0) {
         ans = root->data;
         return;
     }
-    findKthLargest(root->left, k, ans);
+    findKthSmallest(root->right, k, ans);
 }
 
-int kthLargest(Node* root, int k) {
+int kthSmallest(Node* root, int k) {
     int ans = -1;
-    findKthLargest(root, k, ans);
+    findKthSmallest(root, k, ans);
     return ans;
 }
 
@@ -55,7 +55,7 @@ int main() {
     }
 
     int k = 3;
-    cout << k << "rd largest element: " << kthLargest(root, k) << endl;
+    cout << k << "rd smallest element: " << kthSmallest(root, k) << endl;
 
     return 0;
 }
