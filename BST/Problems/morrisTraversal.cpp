@@ -3,7 +3,7 @@
 using namespace std;
 
 // Definition of the Binary Tree Node
-class Node {
+struct Node {
     int data;
     Node* left;
     Node* right;
