@@ -1,3 +1,9 @@
+// Problem: Given an array arr[] of N nodes representing preorder traversal of some BST. You have to build the BST  from the given preorder traversal. 
+
+// In Pre-Order traversal, the root node is visited before the left child and right child nodes.
+
+
+
 #include <iostream>
 #include <climits>
 using namespace std;
